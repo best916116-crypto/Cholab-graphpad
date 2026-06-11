@@ -1,0 +1,6 @@
+# Keep this public GitHub Pages repo limited to the static web app.
+*
+!index.html
+!README.md
+!.gitignore
+!.nojekyll
