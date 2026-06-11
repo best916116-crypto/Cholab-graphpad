@@ -4,3 +4,5 @@
 !README.md
 !.gitignore
 !.nojekyll
+!payload/
+!payload/*.js
