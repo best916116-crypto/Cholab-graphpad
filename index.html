@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cholab GraphPad</title>
+  <style>
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #111827; background: #f8fafc; }
+    .status { text-align: center; max-width: 520px; padding: 28px; }
+    .brand { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .note { color: #64748b; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <div class="status">
+    <div class="brand">Cholab GraphPad</div>
+    <div class="note">앱을 불러오는 중입니다. 잠시만 기다려 주세요.</div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako_inflate.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>window.__CHOLAB_PAYLOAD = [];</script>
+  <script src="payload/chunk-000.js"></script>
+  <script src="payload/chunk-001.js"></script>
+  <script src="payload/chunk-002.js"></script>
+  <script src="payload/chunk-003.js"></script>
+  <script src="payload/chunk-004.js"></script>
+  <script src="payload/chunk-005.js"></script>
+  <script src="payload/chunk-006.js"></script>
+  <script src="payload/chunk-007.js"></script>
+  <script src="payload/chunk-008.js"></script>
+  <script src="payload/chunk-009.js"></script>
+  <script src="payload/chunk-010.js"></script>
+  <script src="payload/chunk-011.js"></script>
+  <script src="payload/chunk-012.js"></script>
+  <script>
+  (function() {
+    function renderError(error) {
+      document.body.innerHTML = '<div class="status"><div class="brand">Cholab GraphPad</div><div class="note">앱을 여는 중 문제가 생겼습니다.<br>' + String(error && error.message ? error.message : error) + '</div></div>';
+    }
+    function bytesFromBase64(value) {
+      const binary = atob(value);
+      const bytes = new Uint8Array(binary.length);
+      for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+      return bytes;
+    }
+    try {
+      const chunks = window.__CHOLAB_PAYLOAD || [];
+      if (!window.pako) throw new Error('압축 해제 라이브러리를 불러오지 못했습니다. 인터넷 연결을 확인해 주세요.');
+      if (chunks.length !== 13 || chunks.some(function(chunk) { return !chunk; })) throw new Error('앱 파일 일부를 불러오지 못했습니다. 페이지를 새로고침해 주세요.');
+      const html = window.pako.inflate(bytesFromBase64(chunks.join('')), { to: 'string' });
+      document.open();
+      document.write(html);
+      document.close();
+    } catch (error) {
+      renderError(error);
+    }
+  })();
+  </script>
+</body>
+</html>
