@@ -6,3 +6,6 @@
 !.nojekyll
 !payload/
 !payload/*.js
+!.github/
+!.github/workflows/
+!.github/workflows/pages.yml
