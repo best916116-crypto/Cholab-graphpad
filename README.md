@@ -1,0 +1,88 @@
+# Cholab GraphPad
+
+Cholab GraphPad는 일반 실험 데이터를 우선으로 자동 인식해 그래프를 추천하고, 필요할 때 qPCR raw data까지 분석할 수 있는 정적 웹앱입니다. 별도 설치 없이 `index.html`을 Chrome, Edge, Safari 같은 브라우저로 열어 사용합니다.
+
+## 빠른 시작
+
+1. `index.html`을 더블클릭해서 브라우저로 엽니다.
+2. 기본으로 열리는 `일반 그래프` 탭에서 시작합니다. qPCR 데이터가 필요할 때만 `qPCR` 탭을 선택합니다.
+3. XLSX/CSV/TSV 파일을 업로드하거나 표를 붙여넣습니다.
+4. 오른쪽 `미리보기`에서 그래프를 확인합니다.
+5. 필요한 경우 제목, X/Y축 이름, 그룹, 오차막대, 범례 위치, 색상 팔레트, 보조선과 기준선을 조정합니다.
+6. `PNG`, `SVG`, `CSV`, `XLSX`로 저장합니다.
+
+## 일반 그래프
+
+일반 그래프 탭은 데이터 형태를 보고 적절한 그래프를 자동 추천합니다. 추천이 마음에 들지 않으면 그래프 버튼이나 `그래프 종류 Graph` 선택 메뉴에서 바로 바꿀 수 있습니다.
+
+지원 그래프:
+
+- Bar + dots
+- Grouped bar
+- Line
+- Scatter
+- Box
+- Violin
+- Histogram
+- Heatmap
+- Dose response
+- Volcano
+
+자동 추천 예시:
+
+- `Target/Gene + Sample/Condition + Value/RE`: grouped bar
+- `Time/Day/Hour + Value + Group`: line
+- `Dose/Concentration + Response/Viability`: dose-response
+- `log2FC + p-value/padj`: volcano
+- 첫 열은 gene/sample 이름, 나머지가 여러 숫자 컬럼: heatmap
+- 숫자형 컬럼 2개 이상: scatter
+- 숫자형 컬럼 1개: histogram
+
+## qPCR 그래프
+
+qPCR 탭은 장비에서 export한 raw table을 받아 relative expression 그래프를 만듭니다.
+
+기본 컬럼 예시:
+
+```text
+Well    Target    Sample    Cq
+A1      GAPDH     Control_1  18.3
+A2      ACTB      Control_1  19.1
+A3      IL6       Control_1  26.4
+```
+
+사용 순서:
+
+1. `qPCR` 탭에서 파일을 업로드하거나 표를 붙여넣습니다.
+2. `Reference gene 기준 유전자`에서 GAPDH, ACTB 같은 housekeeping gene을 선택합니다.
+3. `Calibrator 기준 샘플`에서 Control, WT 등 기준 샘플을 선택합니다.
+4. BioRep/TechRep 구조와 `오차막대 Error bar`를 선택합니다.
+5. `분석`을 누릅니다.
+
+## 수동 조정
+
+- `X`, `Y`, `Group`, `Label`: 컬럼을 직접 지정합니다.
+- `그룹 기준`: 자주 바꾸는 Group 컬럼을 빠르게 선택합니다.
+- `X/Y 바꾸기`: 숫자형 축을 서로 바꿉니다.
+- `제목 Title`, `X축 이름`, `Y축 이름`: 그래프에 표시될 이름을 직접 입력합니다.
+- `오차막대 Error bar`: SEM, SD, 95% CI, 없음 중에서 선택합니다.
+- `X값 변환`, `Y값 변환`: log10, log2, ln, sqrt, z-score, percent 변환을 적용합니다.
+- `범례 위치 Legend`: Right, Top, Bottom, Left, Floating, Hide 중에서 선택합니다.
+
+## 보조선과 기준선
+
+- `축과 범례 Axes`의 `가로 보조선`: Y축 방향의 내부 보조선을 켜거나 끕니다.
+- `축과 범례 Axes`의 `세로 보조선`: X축 방향의 내부 보조선을 켜거나 끕니다.
+- `축과 범례 Axes`의 `기준선`: cutoff, baseline, threshold처럼 강조할 값을 가로선 또는 세로선으로 추가합니다.
+- `축과 범례 Axes`의 `기준선 라벨`: 추가한 기준선 이름을 직접 입력합니다.
+- `축과 범례 Axes`의 `기준선 라벨 표시`: 기준선 라벨을 한 번에 보이거나 숨깁니다.
+- `축과 범례 Axes`의 `기준선 목록`에서 기준선을 선택하고 `삭제`를 누르면 해당 기준선이 제거됩니다.
+
+## 저장 형식
+
+- `PNG`: 이미지 파일로 저장
+- `SVG`: Illustrator 등에서 편집하기 좋은 벡터 파일
+- `CSV`: 그래프에 사용된 표 데이터
+- `XLSX`: summary, 계산 상세, warning note가 포함된 엑셀 파일
+
+인터넷 연결이 제한된 환경에서는 Plotly와 SheetJS 라이브러리 로딩이 되지 않을 수 있습니다.
