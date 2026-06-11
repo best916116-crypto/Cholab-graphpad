@@ -1,10 +1,16 @@
 # Cholab GraphPad
 
-Cholab GraphPad는 일반 실험 데이터를 우선으로 자동 인식해 그래프를 추천하고, 필요할 때 qPCR raw data까지 분석할 수 있는 정적 웹앱입니다. 별도 설치 없이 `index.html`을 Chrome, Edge, Safari 같은 브라우저로 열어 사용합니다.
+## 바로 실행
+
+[Cholab GraphPad 열기](https://best916116-crypto.github.io/Cholab-graphpad/)
+
+위 링크를 누르면 설치 없이 브라우저에서 바로 열립니다.
+
+Cholab GraphPad는 일반 실험 데이터를 우선으로 자동 인식해 그래프를 추천하고, 필요할 때 qPCR raw data까지 분석할 수 있는 정적 웹앱입니다. 별도 설치 없이 GitHub Pages 링크를 브라우저로 열어 사용합니다.
 
 ## 빠른 시작
 
-1. `index.html`을 더블클릭해서 브라우저로 엽니다.
+1. [Cholab GraphPad 열기](https://best916116-crypto.github.io/Cholab-graphpad/)를 누릅니다.
 2. 기본으로 열리는 `일반 그래프` 탭에서 시작합니다. qPCR 데이터가 필요할 때만 `qPCR` 탭을 선택합니다.
 3. XLSX/CSV/TSV 파일을 업로드하거나 표를 붙여넣습니다.
 4. 오른쪽 `미리보기`에서 그래프를 확인합니다.
