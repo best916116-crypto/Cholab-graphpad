@@ -27,24 +27,25 @@
     </div>
   </div>
   <script>window.__CHOLAB_PAYLOAD = [];</script>
-  <script src="payload/chunk-000.js?v=advanced-style-20260615"></script>
-  <script src="payload/chunk-001.js?v=advanced-style-20260615"></script>
-  <script src="payload/chunk-002.js?v=advanced-style-20260615"></script>
-  <script src="payload/chunk-003.js?v=advanced-style-20260615"></script>
-  <script src="payload/chunk-004.js?v=advanced-style-20260615"></script>
-  <script src="payload/chunk-005.js?v=advanced-style-20260615"></script>
-  <script src="payload/chunk-006.js?v=advanced-style-20260615"></script>
-  <script src="payload/chunk-007.js?v=advanced-style-20260615"></script>
-  <script src="payload/chunk-008.js?v=advanced-style-20260615"></script>
-  <script src="payload/chunk-009.js?v=advanced-style-20260615"></script>
-  <script src="payload/chunk-010.js?v=advanced-style-20260615"></script>
-  <script src="payload/chunk-011.js?v=advanced-style-20260615"></script>
-  <script src="payload/chunk-012.js?v=advanced-style-20260615"></script>
-  <script src="payload/chunk-013.js?v=advanced-style-20260615"></script>
+  <script src="payload/chunk-000.js?v=qc-tabs-fonts-20260615"></script>
+  <script src="payload/chunk-001.js?v=qc-tabs-fonts-20260615"></script>
+  <script src="payload/chunk-002.js?v=qc-tabs-fonts-20260615"></script>
+  <script src="payload/chunk-003.js?v=qc-tabs-fonts-20260615"></script>
+  <script src="payload/chunk-004.js?v=qc-tabs-fonts-20260615"></script>
+  <script src="payload/chunk-005.js?v=qc-tabs-fonts-20260615"></script>
+  <script src="payload/chunk-006.js?v=qc-tabs-fonts-20260615"></script>
+  <script src="payload/chunk-007.js?v=qc-tabs-fonts-20260615"></script>
+  <script src="payload/chunk-008.js?v=qc-tabs-fonts-20260615"></script>
+  <script src="payload/chunk-009.js?v=qc-tabs-fonts-20260615"></script>
+  <script src="payload/chunk-010.js?v=qc-tabs-fonts-20260615"></script>
+  <script src="payload/chunk-011.js?v=qc-tabs-fonts-20260615"></script>
+  <script src="payload/chunk-012.js?v=qc-tabs-fonts-20260615"></script>
+  <script src="payload/chunk-013.js?v=qc-tabs-fonts-20260615"></script>
+  <script src="payload/chunk-014.js?v=qc-tabs-fonts-20260615"></script>
   <script>
   (async function() {
     function renderError(error) {
-      document.body.innerHTML = '<div id="cholab-loader"><div class="status"><div class="brand">Cholab GraphPad</div><div class="note">앱을 여는 중 문제가 생겼습니다.<br>' + String(error && error.message ? error.message : error) + '</div></div></div>';
+      document.body.innerHTML = `<div id="cholab-loader"><div class="status"><div class="brand">Cholab GraphPad</div><div class="note">앱을 여는 중 문제가 생겼습니다.<br>${String(error && error.message ? error.message : error)}</div></div></div>`;
     }
     function bytesFromBase64(value) {
       const binary = atob(value);
@@ -53,17 +54,17 @@
       return bytes;
     }
     async function inflateGzip(bytes) {
-      if (!('DecompressionStream' in window)) throw new Error('이 브라우저는 앱 압축 해제를 지원하지 않습니다. 최신 Chrome, Edge, Safari에서 열어 주세요.');
-      const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+      if (!("DecompressionStream" in window)) throw new Error("이 브라우저는 앱 압축 해제를 지원하지 않습니다. 최신 Chrome, Edge, Safari에서 열어 주세요.");
+      const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
       return await new Response(stream).text();
     }
     try {
       const chunks = window.__CHOLAB_PAYLOAD || [];
-      if (chunks.length !== 14 || chunks.some(function(chunk) { return !chunk; })) throw new Error('앱 파일 일부를 불러오지 못했습니다. 페이지를 새로고침해 주세요.');
-      const html = await inflateGzip(bytesFromBase64(chunks.join('')));
-      const loader = document.getElementById('cholab-loader');
+      if (chunks.length !== 15 || chunks.some(function(chunk) { return !chunk; })) throw new Error("앱 파일 일부를 불러오지 못했습니다. 페이지를 새로고침해 주세요.");
+      const html = await inflateGzip(bytesFromBase64(chunks.join("")));
+      const loader = document.getElementById("cholab-loader");
       if (loader) loader.remove();
-      document.open('text/html', 'replace');
+      document.open("text/html", "replace");
       document.write(html);
       document.close();
     } catch (error) {
