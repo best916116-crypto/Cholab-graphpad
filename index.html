@@ -26,23 +26,23 @@
       <div class="note">앱을 불러오는 중입니다. 잠시만 기다려 주세요.</div>
     </div>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako_inflate.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>window.__CHOLAB_PAYLOAD = [];</script>
-  <script src="payload/chunk-000.js?v=bd13a2f"></script>
-  <script src="payload/chunk-001.js?v=bd13a2f"></script>
-  <script src="payload/chunk-002.js?v=bd13a2f"></script>
-  <script src="payload/chunk-003.js?v=bd13a2f"></script>
-  <script src="payload/chunk-004.js?v=bd13a2f"></script>
-  <script src="payload/chunk-005.js?v=bd13a2f"></script>
-  <script src="payload/chunk-006.js?v=bd13a2f"></script>
-  <script src="payload/chunk-007.js?v=bd13a2f"></script>
-  <script src="payload/chunk-008.js?v=bd13a2f"></script>
-  <script src="payload/chunk-009.js?v=bd13a2f"></script>
-  <script src="payload/chunk-010.js?v=bd13a2f"></script>
-  <script src="payload/chunk-011.js?v=bd13a2f"></script>
-  <script src="payload/chunk-012.js?v=bd13a2f"></script>
+  <script src="payload/chunk-000.js?v=advanced-style-20260615"></script>
+  <script src="payload/chunk-001.js?v=advanced-style-20260615"></script>
+  <script src="payload/chunk-002.js?v=advanced-style-20260615"></script>
+  <script src="payload/chunk-003.js?v=advanced-style-20260615"></script>
+  <script src="payload/chunk-004.js?v=advanced-style-20260615"></script>
+  <script src="payload/chunk-005.js?v=advanced-style-20260615"></script>
+  <script src="payload/chunk-006.js?v=advanced-style-20260615"></script>
+  <script src="payload/chunk-007.js?v=advanced-style-20260615"></script>
+  <script src="payload/chunk-008.js?v=advanced-style-20260615"></script>
+  <script src="payload/chunk-009.js?v=advanced-style-20260615"></script>
+  <script src="payload/chunk-010.js?v=advanced-style-20260615"></script>
+  <script src="payload/chunk-011.js?v=advanced-style-20260615"></script>
+  <script src="payload/chunk-012.js?v=advanced-style-20260615"></script>
+  <script src="payload/chunk-013.js?v=advanced-style-20260615"></script>
   <script>
-  (function() {
+  (async function() {
     function renderError(error) {
       document.body.innerHTML = '<div id="cholab-loader"><div class="status"><div class="brand">Cholab GraphPad</div><div class="note">앱을 여는 중 문제가 생겼습니다.<br>' + String(error && error.message ? error.message : error) + '</div></div></div>';
     }
@@ -52,11 +52,15 @@
       for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
       return bytes;
     }
+    async function inflateGzip(bytes) {
+      if (!('DecompressionStream' in window)) throw new Error('이 브라우저는 앱 압축 해제를 지원하지 않습니다. 최신 Chrome, Edge, Safari에서 열어 주세요.');
+      const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+      return await new Response(stream).text();
+    }
     try {
       const chunks = window.__CHOLAB_PAYLOAD || [];
-      if (!window.pako) throw new Error('압축 해제 라이브러리를 불러오지 못했습니다. 인터넷 연결을 확인해 주세요.');
-      if (chunks.length !== 13 || chunks.some(function(chunk) { return !chunk; })) throw new Error('앱 파일 일부를 불러오지 못했습니다. 페이지를 새로고침해 주세요.');
-      const html = window.pako.inflate(bytesFromBase64(chunks.join('')), { to: 'string' });
+      if (chunks.length !== 14 || chunks.some(function(chunk) { return !chunk; })) throw new Error('앱 파일 일부를 불러오지 못했습니다. 페이지를 새로고침해 주세요.');
+      const html = await inflateGzip(bytesFromBase64(chunks.join('')));
       const loader = document.getElementById('cholab-loader');
       if (loader) loader.remove();
       document.open('text/html', 'replace');
