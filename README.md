@@ -75,6 +75,12 @@ A3      IL6       Control_1  26.4
 - `X값 변환`, `Y값 변환`: log10, log2, ln, sqrt, z-score, percent 변환을 적용합니다.
 - `범례 위치 Legend`: Right, Top, Bottom, Left, Floating, Hide 중에서 선택합니다.
 
+## Figure 스타일
+
+- `Default`: 논문/발표용 기본 스타일을 유지하면서 그래프 종류, 축, 범례, 색상 팔레트만 빠르게 조정합니다.
+- `Advanced`: figure width/height, 폰트, 제목/축/눈금 글자 크기, 여백, 축선, 보조선, 막대 투명도와 테두리, 선 두께, 점 크기와 색, replicate dot 스타일, 오차막대 색과 두께, 기준선 스타일을 직접 조정합니다.
+- 오른쪽 `미리보기`는 스크롤을 내려도 따라오며, Rows/Plotted/Groups/Graph와 QC 메시지가 미리보기 안에 같이 표시됩니다.
+
 ## 보조선과 기준선
 
 - `축과 범례 Axes`의 `가로 보조선`: Y축 방향의 내부 보조선을 켜거나 끕니다.
@@ -91,4 +97,4 @@ A3      IL6       Control_1  26.4
 - `CSV`: 그래프에 사용된 표 데이터
 - `XLSX`: summary, 계산 상세, warning note가 포함된 엑셀 파일
 
-인터넷 연결이 제한된 환경에서는 Plotly와 SheetJS 라이브러리 로딩이 되지 않을 수 있습니다.
+그래프 렌더링과 엑셀 업로드에는 브라우저가 Plotly와 SheetJS 공개 라이브러리를 불러옵니다. GitHub Pages 링크를 열 수 있는 인터넷 환경에서 사용하세요.
